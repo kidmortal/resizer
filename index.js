@@ -12,7 +12,7 @@ app.get('/', async (req, res) => {
     const resizedImageBuffer = await sharp(response.data)
       .resize({ width: 1424, height: 1061 })
       .toBuffer();
-    res.type('image/jpeg').send(resizedImageBuffer);
+    res.type('image/png').send(resizedImageBuffer);
   } catch (error) {
     console.error('Error fetching or resizing image:', error.message);
     res.status(500).send('Internal Server Error');
